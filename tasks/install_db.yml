@@ -1,0 +1,25 @@
+  # - name: download mysql package
+  #   get_url:
+  #     url: http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+  #     dest: /home/ansible
+  # - name: install mysql
+  #   command: "rpm -ivh mysql-community-release-el7-5.noarch.rpm"  
+  # - name: yum update
+  #   command: "yum update -y" 
+  - name: install mysql-server
+    yum:
+      name: mysql-server
+      state: present  
+  - name: start mysql 
+    command: "systemctl start mysqld"     
+  - name: create database 
+    mysql_db: 
+      name: "{{ db_name }}" 
+      state: present
+  - name: create database user
+    mysql_user: 
+      name: "{{ db_username }}"
+      password: "{{ db_password }}"
+      state: present
+      priv: '*.*:ALL'   
+      host: '%'   

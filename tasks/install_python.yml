@@ -1,0 +1,8 @@
+  - name: install dependency
+    yum:
+      name: "{{ item }}"
+      state: present
+    with_items:
+      - epel-release
+      - python3
+      - python3-pip

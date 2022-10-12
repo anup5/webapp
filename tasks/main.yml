@@ -1,0 +1,7 @@
+---
+# tasks file for webapp
+- import_tasks: install_python.yml
+- import_tasks: install_flask.yml
+- import_tasks: install_db.yml
+- import_tasks: install_app.yml
+

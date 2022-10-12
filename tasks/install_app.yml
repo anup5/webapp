@@ -1,0 +1,11 @@
+  - name: copy source code 
+    copy: 
+      src: app.py
+      dest: /opt/app.py
+  - name: move flask to /opt 
+    shell: "cp /home/ansible/.local/bin/flask /opt/flask"      
+  - name: start web application 
+    shell: "FLASK_APP=/opt/app.py nohup /opt/flask run --host=0.0.0.0 &"     
+    register: start_app
+  - debug:
+      var: start_app    
