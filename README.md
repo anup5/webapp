@@ -1,7 +1,7 @@
 Role Name
 =========
 
-Deploy webapp using Flask and MySQL
+deploy webapp using Flask and MySQL
 
 Requirements
 ------------
